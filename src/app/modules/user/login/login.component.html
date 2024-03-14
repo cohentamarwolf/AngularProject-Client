@@ -1,0 +1,28 @@
+<div class="example-container">
+    <div class="center-container">
+      <br>
+      <mat-form-field floatLabel="always">
+        <mat-label>Enter your Name</mat-label>
+        <input matInput name="name" [(ngModel)]="name">
+      </mat-form-field>
+      <br>
+      <mat-form-field floatLabel="always">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <br>
+      <section *ngIf="!isInstructor" class="example-section">
+        <mat-checkbox class="example-margin" [(ngModel)]="isInstructor">מרצה</mat-checkbox>
+      </section>
+      <mat-form-field floatLabel="always" *ngIf="isInstructor">
+        <mat-label>Enter Course Name</mat-label>
+        <input matInput name="courseName" [(ngModel)]="courseName">
+      </mat-form-field>
+      <br>
+      <button mat-button color="primary" (click)="checkUser()">LOG IN</button>
+    </div>
+  </div>

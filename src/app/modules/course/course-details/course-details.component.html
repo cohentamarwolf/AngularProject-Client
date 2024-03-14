@@ -1,0 +1,25 @@
+<mat-card class="example-card" *ngIf="!showEdit()">
+    <mat-card-header>
+      <mat-card-title>
+        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> -->
+        <mat-icon>{{ course.study! | studyIcon }}</mat-icon>
+        {{ course!.name }}
+      </mat-card-title>
+      <mat-card-subtitle>{{ course!.lecturer?.name }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <br>
+      <p>
+        <strong>Count of Lessons:</strong> {{ course!.countOfLessons }} <br>
+        <strong>Syllabus:</strong> {{ course!.syllabus }} <br>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+  <br>
+  <button *ngIf="showButton()" (click)="edit(true)">Edit</button>
+  <app-edit-details [course]="course" *ngIf="showEdit()" (courseSaved)="edit(false)"></app-edit-details>

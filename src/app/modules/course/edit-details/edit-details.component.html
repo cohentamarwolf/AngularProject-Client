@@ -1,0 +1,36 @@
+<div class="center-container">
+  <form [formGroup]="editCourse" (ngSubmit)="saveCourseDetails()">
+    <mat-form-field floatLabel="always">
+      <mat-label>Course Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+      <mat-label>Count of Lessons</mat-label>
+      <input matInput formControlName="countOfLessons" type="number">
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+      <mat-label>Start Date</mat-label>
+      <input matInput formControlName="start" type="date">
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+      <mat-label>Syllabus</mat-label>
+      <textarea matInput formControlName="syllabus"></textarea>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+      <mat-label>Study</mat-label>
+      <mat-select formControlName="study">
+        <mat-option value="online">Online</mat-option>
+        <mat-option value="offline">Offline</mat-option>
+        <mat-option value="hybrid">Hybrid</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="image">
+    </mat-form-field>
+    <mat-card-actions>
+      <button type="submit">SAVE</button>
+      <button type="button">cancel</button>
+    </mat-card-actions>
+  </form>
+</div>
